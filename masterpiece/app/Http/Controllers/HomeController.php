@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\subcategories;
+use App\Models\shops;
+
 use Illuminate\Http\Request;
 
 
@@ -60,10 +62,10 @@ class HomeController extends Controller
         return view('package');
     }
 
-    public function Shops(){
+    // public function Shops(){
 
-        return view('shops');
-    }
+    //     return view('shops');
+    // }
 
     public function Product(){
 
@@ -90,5 +92,10 @@ class HomeController extends Controller
     public function fetch3(){
         $data = subcategories::all()->where('sub_category', '=', 'Venue');
         return view('venue', compact('data'));
+    }
+
+    public function fetch4(){
+        $data = shops::all()->where('sub_id', '=', '1');
+        return view('shops', compact('data'));
     }
 }

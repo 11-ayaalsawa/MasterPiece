@@ -64,7 +64,62 @@
         </div>
       </section>
 
-      <section class="author-archive">
+      {{-- ========================================= --}}
+      @foreach ($data as $item)
+<div class="card hover">
+	<div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1493847242172-d46053a1f671?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f91dd5d50f16ba80af53a62d4caf2ce&auto=format&fit=crop&w=500&q=60);">
+		<div class="overlay">
+			<div class="overlay-content">
+				<a class="hover" href="#!">View Project</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="card-content">
+		<a href="#!">
+			<h2>Title</h2>
+			<p>Lorem ipsum dolor sit amet consectetur, lorem ipsum dolor</p>
+		</a>
+	</div>
+</div>
+
+{{-- <div class="card">
+	<div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1491374812364-00028bbe7d2f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a22e4862c36c552e726815949fbcb41a&auto=format&fit=crop&w=500&q=60);">
+		<div class="overlay">
+			<div class="overlay-content">
+				<a href="#!">View Project</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="card-content">
+		<a href="#!">
+			<h2>Title</h2>
+			<p>Lorem ipsum dolor sit amet consectetur, lorem ipsum dolor</p>
+		</a>
+	</div>
+</div>
+
+<div class="card">
+	<div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1519176336903-04be58a477d2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=eda05ddcb3154f39fd8ce88fdd44f531&auto=format&fit=crop&w=500&q=60);">
+		<div class="overlay">
+			<div class="overlay-content">
+				<a href="#!">View Project</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="card-content">
+		<a href="#!">
+			<h2>Title</h2>
+			<p>Lorem ipsum dolor sit amet consectetur, lorem ipsum dolor</p>
+		</a>
+	</div>
+</div> --}}
+      
+      {{-- ============================================= --}}
+
+      {{-- <section class="author-archive">
         <div class="container">
           <h1>Different shops <a href="https://tutsplus.com/authors/george-martsoukos" target="_blank">to find what works for you</a></h1>
           <input type="radio" id="All" name="categories" value="All" checked>
@@ -73,7 +128,7 @@
           <input type="radio" id="jQuery" name="categories" value="jQuery">
           <input type="radio" id="WordPress" name="categories" value="WordPress">
           <input type="radio" id="Slider" name="categories" value="Slider">
-          <input type="radio" id="fullPage.js" name="categories" value="fullPage.js">
+          <input type="radio" id="fullPage.js" name="categories" value="fullPage.js"> --}}
       
           {{-- <ol class="filters">
             <li>
@@ -98,32 +153,38 @@
               <label for="fullPage.js">fullPage.js</label>
             </li>
           </ol> --}}
-      
+{{--       
           <ol class="posts">
             <li class="post" data-category="CSS JavaScript">
+             
               <article>
+               
                 <figure>
+                  @foreach ($data as $item)
                   <a href="https://webdesign.tutsplus.com/tutorials/quick-tip-how-to-build-a-dead-simple-parallax-effect-with-css-javascript--cms-33061?_ga=2.146015156.1249101154.1555312171-2126893531.1553152868" target="_blank">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/parallax-pre.jpg" alt="">
+                    <img src="{{$item->shop_img}}" alt="">
                   </a>
                   <figcaption>
                     <ol class="post-categories">
                       <li>
-                        <a href="">CSS</a>
+                        <a href="">{{$item->shop_name}}</a>
                       </li>
                       <li>
-                        <a href="">JavaScript</a>
+                        <a href="">{{$item->shop_id}}</a>
                       </li>
                     </ol>
                     <h2 class="post-title">
-                      <a href="https://webdesign.tutsplus.com/tutorials/quick-tip-how-to-build-a-dead-simple-parallax-effect-with-css-javascript--cms-33061?_ga=2.146015156.1249101154.1555312171-2126893531.1553152868" target="_blank">Quick Tip: Create a Very Simple Parallax Effect With CSS & JavaScript
+                      <a href="https://webdesign.tutsplus.com/tutorials/quick-tip-how-to-build-a-dead-simple-parallax-effect-with-css-javascript--cms-33061?_ga=2.146015156.1249101154.1555312171-2126893531.1553152868" target="_blank">{{$item->shop_description}}
                       </a>
                     </h2>
                   </figcaption>
+                  @endforeach
                 </figure>
+               
               </article>
-            </li>
-            <li class="post" data-category="CSS JavaScript">
+         
+            </li> --}}
+            {{-- <li class="post" data-category="CSS JavaScript">
               <article>
                 <figure>
                   <a href="https://webdesign.tutsplus.com/tutorials/how-to-build-a-portfolio-page-with-css-javascript--cms-32933?_ga=2.268974834.267848227.1555345574-242901505.1471790948" target="_blank">
@@ -371,8 +432,8 @@
                   </figcaption>
                 </figure>
               </article>
-            </li>
-          </ol>
+            </li> --}}
+          {{-- </ol>
         </div>
       </section>
       <footer>
@@ -380,7 +441,7 @@
           <small>Made with <span>❤</span> by <a href="http://georgemartsoukos.com/" target="_blank">George Martsoukos</a>
           </small>
         </div>
-      </footer>
+      </footer> --}}
 		
 
     <section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
