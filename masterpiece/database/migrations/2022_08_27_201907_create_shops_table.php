@@ -18,6 +18,7 @@ class CreateShopsTable extends Migration
             $table->string('shop_name');
             $table->string('shop_img');
             $table->string('shop_description');
+            $table->string('sub_id');
           
             $table->timestamps();
         });

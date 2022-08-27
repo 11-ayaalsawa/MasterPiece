@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\subcategories;
 use App\Models\shops;
+use App\Models\products;
 
 use Illuminate\Http\Request;
 
@@ -94,8 +95,18 @@ class HomeController extends Controller
         return view('venue', compact('data'));
     }
 
-    public function fetch4(){
-        $data = shops::all()->where('sub_id', '=', '1');
+    // public function fetch4(){
+    //     $data = shops::all()->where('sub_id', '=', '1');
+    //     return view('shops', compact('data'));
+    // }
+
+    public function fetch4($id){
+        $data = shops::all()->where('sub_id', '=', $id);
         return view('shops', compact('data'));
+    }
+
+    public function fetch5($id){
+        $data = products::all()->where('shop_id', '=', $id);
+        return view('product', compact('data'));
     }
 }

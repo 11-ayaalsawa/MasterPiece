@@ -225,6 +225,9 @@
     background: #fff;
     position: relative;
     overflow: hidden;
+    margin-top: 5%;
+    margin-left:3%; 
+
   }
   .card:hover, .card.hover {
     transform: translateY(-4px);
@@ -235,7 +238,7 @@
     border-color: #ccb65e;
   }
   .card:hover .card-img .overlay, .card.hover .card-img .overlay {
-    background-color: rgba(25, 29, 38, 0.85);
+    background-color: rgba(25, 29, 38, 0.169);
     transition: opacity 0.2s ease;
     opacity: 1;
   }

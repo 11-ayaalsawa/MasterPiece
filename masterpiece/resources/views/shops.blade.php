@@ -52,36 +52,37 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/contact.jpg');" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/contact.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay">  <div class="container">
           <div class="row no-gutters slider-text align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate pb-5 text-center">
               <h1 class="mb-3 bread">Shops</h1>
               <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Package <i class="ion-ios-arrow-forward"></i></span></p>
             </div>
           </div>
-        </div>
+        </div></div>
+      
       </section>
 
       {{-- ========================================= --}}
       @foreach ($data as $item)
 <div class="card hover">
-	<div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1493847242172-d46053a1f671?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f91dd5d50f16ba80af53a62d4caf2ce&auto=format&fit=crop&w=500&q=60);">
+	<div class="card-img" style="background-image:url({{$item->shop_img}});">
 		<div class="overlay">
 			<div class="overlay-content">
-				<a class="hover" href="#!">View Project</a>
+				<a class="hover" href="/product/id/{{$item->shop_id}}">View More</a>
 			</div>
 		</div>
 	</div>
 	
 	<div class="card-content">
 		<a href="#!">
-			<h2>Title</h2>
-			<p>Lorem ipsum dolor sit amet consectetur, lorem ipsum dolor</p>
+			<h2>{{$item->shop_name}}</h2>
+			<p>{{$item->shop_description}}</p>
 		</a>
 	</div>
 </div>
+@endforeach
 
 {{-- <div class="card">
 	<div class="card-img" style="background-image:url(https://images.unsplash.com/photo-1491374812364-00028bbe7d2f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a22e4862c36c552e726815949fbcb41a&auto=format&fit=crop&w=500&q=60);">
@@ -540,7 +541,7 @@
   
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  {{-- <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div> --}}
 
 
   <script src="js/jquery.min.js"></script>

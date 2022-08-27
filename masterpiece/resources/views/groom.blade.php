@@ -84,7 +84,7 @@
         			</div>
         			<h3><a href="practice-single.html">{{$item->sub_id}}</a></h3>
         			<p>{{$item->sub_name}}</p>
-        			<a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></a>
+        			<a href="/shops/id/{{$item->sub_id}}" class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></a>
         		</div>
         	</div>
 			@endforeach

@@ -49,7 +49,13 @@ Route::get('/groom', [App\Http\Controllers\HomeController::class, 'fetch2']);
 
 Route::get('/venue', [App\Http\Controllers\HomeController::class, 'fetch3']);
 
-Route::get('/shops', [App\Http\Controllers\HomeController::class, 'fetch4']);
+// Route::get('/shops', [App\Http\Controllers\HomeController::class, 'fetch4']);
+
+
+Route::get('/shops/id/{sub_id}', [App\Http\Controllers\HomeController::class, 'fetch4']);
+
+Route::get('/product/id/{shop_id}', [App\Http\Controllers\HomeController::class, 'fetch5']);
+
 
 
 
