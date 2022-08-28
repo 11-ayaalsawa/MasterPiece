@@ -40,7 +40,7 @@ Route::get('/package', [App\Http\Controllers\HomeController::class, 'package']);
 
 Route::get('/product', [App\Http\Controllers\HomeController::class, 'product']);
 
-Route::get('/single', [App\Http\Controllers\HomeController::class, 'single']);
+// Route::get('/single', [App\Http\Controllers\HomeController::class, 'single']);
 
 
 Route::get('/bride', [App\Http\Controllers\HomeController::class, 'fetch']);
@@ -58,6 +58,7 @@ Route::get('/product/id/{shop_id}', [App\Http\Controllers\HomeController::class,
 
 
 
+Route::get('/single/id/{product_id}', [App\Http\Controllers\HomeController::class, 'fetch6']);
 
 
 

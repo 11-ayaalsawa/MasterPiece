@@ -52,7 +52,7 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/contact.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/contact.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -69,15 +69,17 @@
       <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+              @foreach ($data as $item)
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{$item->product_img}}" alt="..." /></div>
+             
                 <div class="col-md-6">
-                    <div class="small mb-1">SKU: BST-498</div>
-                    <h1 class="display-5 fw-bolder">Shop item template</h1>
+                    {{-- <div class="small mb-1">SKU: BST-498</div> --}}
+                    <h1 class="display-5 fw-bolder">{{$item->product_name}}</h1>
                     <div class="fs-5 mb-5">
-                        <span class="text-decoration-line-through">$45.00</span>
-                        <span>$40.00</span>
+                        <span class="text-decoration-line-through">  {{$item->product_price}} JOD</span>
+                        {{-- <span>$40.00</span> --}}
                     </div>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                    <p class="lead">{{$item->product_description}} </p>
                     <div class="d-flex">
                         <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
                         <button class="btn btn-outline-dark flex-shrink-0" type="button">
@@ -86,7 +88,9 @@
                         </button>
                     </div>
                 </div>
+               
             </div>
+            @endforeach
         </div>
     </section>
 
@@ -186,7 +190,7 @@
   
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  {{-- <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div> --}}
 
 
   <script src="js/jquery.min.js"></script>

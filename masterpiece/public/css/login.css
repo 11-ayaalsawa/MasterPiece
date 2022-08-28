@@ -13,7 +13,7 @@ body{
       
 }
 
-.container{
+.login{
     width: 50%;
     height: 400px;
     margin: 100px auto;
@@ -54,7 +54,7 @@ body{
     border: none;
     font-size: 16px;
     border-radius: 30px;
-    background: linear-gradient(to right, #e43a15,#e65245);
+    background: #afa939;
     outline: none;
     cursor: pointer;
 }
@@ -114,7 +114,7 @@ body{
 }
 
 .container .right form button:hover{
-    background: linear-gradient(to right, #e43a15,#e65245);
+    background:#afa939;
     color: #fff;
     border: none;
 }

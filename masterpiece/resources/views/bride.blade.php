@@ -39,15 +39,15 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item "><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
 	          <!-- <li class="nav-item"><a href="attorneys.html" class="nav-link">stories</a></li> -->
-	          <li class="nav-item"><a href="practice-areas.html" class="nav-link">Bride</a></li>
-			  <li class="nav-item"><a href="practice-areas.html" class="nav-link">Groom</a></li>
-			  <li class="nav-item"><a href="practice-areas.html" class="nav-link">Place</a></li>
+	          <li class="nav-item active"><a href="/bride" class="nav-link">Bride</a></li>
+			  <li class="nav-item"><a href="/groom" class="nav-link">Groom</a></li>
+			  <li class="nav-item"><a href="/venue" class="nav-link">Venue</a></li>
 	          <!-- <li class="nav-item"><a href="case.html" class="nav-link">Case Studies</a></li> -->
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
 	          <li class="nav-item cta"><a href="#" class="nav-link">Reservation</a></li>
 	        </ul>
 	      </div>
@@ -76,7 +76,7 @@
         			<div class="icon d-flex justify-content-center align-items-center">
         				<span class="{{$item->sub_icone}}"></span>
         			</div>
-        			<h3><a href="practice-single.html">{{$item->sub_id}}</a></h3>
+        			<h3><a href="practice-single.html">{{$item->sub_name}}</a></h3>
         			<p>{{$item->sub_name}}</p>
         			<a href="/shops/id/{{$item->sub_id}}" class="btn-custom d-flex align-items-center justify-content-center"><span class="ion-ios-arrow-round-forward"></span></a>
         		</div>

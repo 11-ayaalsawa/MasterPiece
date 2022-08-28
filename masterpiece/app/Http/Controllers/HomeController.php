@@ -109,4 +109,10 @@ class HomeController extends Controller
         $data = products::all()->where('shop_id', '=', $id);
         return view('product', compact('data'));
     }
+
+    
+    public function fetch6($id){
+        $data = products::all()->where('product_id', '=', $id);
+        return view('single', compact('data'));
+    }
 }

@@ -33,17 +33,17 @@
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
+      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
 	          <!-- <li class="nav-item"><a href="attorneys.html" class="nav-link">stories</a></li> -->
 	          <li class="nav-item"><a href="/bride" class="nav-link">Bride</a></li>
 			  <li class="nav-item"><a href="/groom" class="nav-link">Groom</a></li>
-			  <li class="nav-item"><a href="/venue" class="nav-link">Place</a></li>
+			  <li class="nav-item"><a href="/venue" class="nav-link">Venue</a></li>
 	          <!-- <li class="nav-item"><a href="case.html" class="nav-link">Case Studies</a></li> -->
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
 	          <li class="nav-item cta"><a href="#" class="nav-link">Reservation</a></li>
 	        </ul>
 	      </div>
@@ -195,7 +195,7 @@
               <div class="item">
 		        		<div class="case img d-flex align-items-center justify-content-center" style="background-image: url(images/Bride\ 2.jpg);">
 		        			<div class="text text-center">
-		        				<h3><a href="practice-areas.html">Bride</a></h3>
+		        				<h3><a href="/bride">Bride</a></h3>
 		        				<!-- <span>Corporate</span> -->
 		        			</div>
 		        		</div>
@@ -203,7 +203,7 @@
               <div class="item">
 		        		<div class="case img d-flex align-items-center justify-content-center" style="background-image: url(images/Groom\ c.jpg);">
 		        			<div class="text text-center">
-		        				<h3><a href="practice-areas.html">Groom</a></h3>
+		        				<h3><a href="/groom">Groom</a></h3>
 		        				<!-- <span>Corporate</span> -->
 		        			</div>
 		        		</div>
@@ -211,7 +211,7 @@
               <div class="item">
 		        		<div class="case img d-flex align-items-center justify-content-center" style="background-image: url(images/Place\ c.jpg);">
 		        			<div class="text text-center">
-		        				<h3><a href="practice-areas.html">Venue</a></h3>
+		        				<h3><a href="/venue">Venue</a></h3>
 		        				<!-- <span>Corporate</span> -->
 		        			</div>
 		        		</div>
@@ -460,7 +460,7 @@
         </div>
       </div>
     </section>
-
+{{-- 
     <section class="ftco-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -538,7 +538,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 		
 
     <section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
