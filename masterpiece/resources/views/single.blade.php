@@ -28,29 +28,32 @@
   </head>
   <body>
     
-	  <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">AMOUR <span></span></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <!-- <li class="nav-item"><a href="attorneys.html" class="nav-link">stories</a></li> -->
-	          <li class="nav-item"><a href="practice-areas.html" class="nav-link">Bride</a></li>
-			  <li class="nav-item"><a href="./Groom.html" class="nav-link">Groom</a></li>
-			  <li class="nav-item"><a href="./Place.html" class="nav-link">Place</a></li>
-	          <!-- <li class="nav-item"><a href="case.html" class="nav-link">Case Studies</a></li> -->
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta"><a href="#" class="nav-link">Reservation</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+
+        <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+          <div class="container">
+            <a class="navbar-brand" href="index.html">AMOUR <span></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="oi oi-menu"></span> Menu
+            </button>
+    
+            <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item  active"><a href="/about" class="nav-link">About</a></li>
+                <!-- <li class="nav-item"><a href="attorneys.html" class="nav-link">stories</a></li> -->
+                <li class="nav-item"><a href="/bride" class="nav-link">Bride</a></li>
+            <li class="nav-item"><a href="/groom" class="nav-link">Groom</a></li>
+            <li class="nav-item"><a href="/venue" class="nav-link">Venue</a></li>
+                <!-- <li class="nav-item"><a href="case.html" class="nav-link">Case Studies</a></li> -->
+                {{-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> --}}
+                <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                <li class="nav-item cta"><a href="#" class="nav-link">My Package</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+	 
     <!-- END nav -->
     <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/contact.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
@@ -81,11 +84,20 @@
                     </div>
                     <p class="lead">{{$item->product_description}} </p>
                     <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            Add to cart
-                        </button>
+                   <form action="/AddtoCart" method="POST">
+                    @csrf
+                    <input type="hidden" value="{{$item->product_id}}" name="cart_item">                     
+                   <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                   <i class="bi-cart-fill me-1"></i>
+                    Add to cart
+                   </button>
+                   @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                  </form>
+                
                     </div>
                 </div>
                
@@ -94,27 +106,7 @@
         </div>
     </section>
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
-      <div class="container">
-        <div class="row d-flex justify-content-end">
-        	<div class="col-md-8 py-4 px-md-4 bg-primary">
-        		<div class="row">
-		          <div class="col-md-6 ftco-animate d-flex align-items-center">
-		            <h2 class="mb-0" style="color:white; font-size: 24px;">Subcribe to our Newsletter</h2>
-		          </div>
-		          <div class="col-md-6 d-flex align-items-center">
-		            <form action="#" class="subscribe-form">
-		              <div class="form-group d-flex">
-		                <input type="text" class="form-control" placeholder="Enter email address">
-		                <input type="submit" value="Subscribe" class="submit px-3">
-		              </div>
-		            </form>
-		          </div>
-	          </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">

@@ -66,22 +66,30 @@
 
       {{-- ========================================= --}}
       @foreach ($data as $item)
-<div class="card hover">
-	<div class="card-img" style="background-image:url({{$item->shop_img}});">
-		<div class="overlay">
-			<div class="overlay-content">
-				<a class="hover" href="/product/id/{{$item->shop_id}}">View More</a>
-			</div>
-		</div>
-	</div>
-	
-	<div class="card-content">
-		<a href="#!">
-			<h2>{{$item->shop_name}}</h2>
-			<p>{{$item->shop_description}}</p>
-		</a>
-	</div>
-</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <div class="card hover">
+              <div class="card-img" style="background-image:url({{$item->shop_img}});">
+                <div class="overlay">
+                  <div class="overlay-content">
+                    <a class="hover" href="/product/id/{{$item->shop_id}}">View More</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-content">
+                <a href="#!">
+                  <h2>{{$item->shop_name}}</h2>
+                  <p>{{$item->shop_description}}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
 @endforeach
 
 {{-- <div class="card">

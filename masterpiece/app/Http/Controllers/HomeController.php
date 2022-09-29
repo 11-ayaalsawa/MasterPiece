@@ -1,14 +1,16 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
-use App\Models\subcategories;
 use App\Models\shops;
 use App\Models\products;
-
 use Illuminate\Http\Request;
 
+use App\Models\subcategories;
+use Illuminate\Support\Facades\DB;
 
+session_start();
 class HomeController extends Controller
 {
     /**
@@ -37,6 +39,12 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function Profile(){
+
+        return view('profile');
+    }
+
+
     
     public function Contact(){
 
@@ -59,8 +67,18 @@ class HomeController extends Controller
     }
 
     public function Package(){
-
-        return view('package');
+        $items=[];
+        $items_id=[];
+        if (isset ($_SESSION["cart_items"])){
+            $items_id= $_SESSION["cart_items"];
+        }
+        foreach ($items_id as $item) {
+            array_push($items, DB::select('select * from products where product_id='.$item));
+           
+        }
+       
+        return view('package',compact('items'));
+        
     }
 
     // public function Shops(){
@@ -115,4 +133,37 @@ class HomeController extends Controller
         $data = products::all()->where('product_id', '=', $id);
         return view('single', compact('data'));
     }
+
+    public function addtocart(){
+        $id= request("cart_item");
+        $cart_items=[];
+        if (isset ($_SESSION["cart_items"])){
+            $cart_items= $_SESSION["cart_items"];
+        }
+        array_push($cart_items, $id);
+
+        $_SESSION["cart_items"]= $cart_items;
+        // dd($_SESSION['cart_items']);
+        return redirect("/package")-> with("status", "Your item has been added successfully" );
+        
+    }
+
+        
+    public function delete($id){
+        $cart_items= $_SESSION["cart_items"];
+      
+        $delete=array_search($id,$cart_items);
+        unset($delete);
+        array_values($cart_items);
+        
+        return redirect("/package")-> with("status", "Your item is deleted" );
+    }
+
+    
+    public function reservation(){
+
+        return view('reservation');
+    }
+
+    
 }

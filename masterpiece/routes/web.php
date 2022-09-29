@@ -1,5 +1,7 @@
 <?php
 
+use TCG\Voyager\Voyager;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // use App\Http\Controllers\HomeController;
@@ -28,11 +30,13 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'About']);
 
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact']);
 
+
+
 // Route::get('/bride', [App\Http\Controllers\HomeController::class, 'bride']);
 
-Route::get('/groom', [App\Http\Controllers\HomeController::class, 'groom']);
+// Route::get('/groom', [App\Http\Controllers\HomeController::class, 'groom']);
 
-Route::get('/venue', [App\Http\Controllers\HomeController::class, 'venue']);
+// Route::get('/venue', [App\Http\Controllers\HomeController::class, 'venue']);
 
 Route::get('/package', [App\Http\Controllers\HomeController::class, 'package']);
 
@@ -62,3 +66,19 @@ Route::get('/single/id/{product_id}', [App\Http\Controllers\HomeController::clas
 
 
 
+
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'Profile']);
+
+
+
+Route::post('/AddtoCart', [App\Http\Controllers\HomeController::class, 'addtocart']);
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+
+});
+
+Route::get('/delete_item/id/{product_id}', [App\Http\Controllers\HomeController::class, 'delete']);
+
+
+Route::get('/reservation', [App\Http\Controllers\HomeController::class, 'reservation']);

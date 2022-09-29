@@ -42,9 +42,55 @@
 			  <li class="nav-item"><a href="/groom" class="nav-link">Groom</a></li>
 			  <li class="nav-item"><a href="/venue" class="nav-link">Venue</a></li>
 	          <!-- <li class="nav-item"><a href="case.html" class="nav-link">Case Studies</a></li> -->
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          {{-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> --}}
 	          <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta"><a href="#" class="nav-link">Reservation</a></li>
+	       
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<!-- Left Side Of Navbar -->
+				<ul class="navbar-nav me-auto">
+
+				</ul>
+
+				<!-- Right Side Of Navbar -->
+				<ul class="navbar-nav ms-auto">
+					<!-- Authentication Links -->
+					@guest
+						@if (Route::has('login'))
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+							
+							</li>
+						@endif
+
+						@if (Route::has('register'))
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+							</li>
+						@endif
+					@else
+					<li class="nav-item cta"><a href="#" class="nav-link">My Package</a></li>
+						<li class="nav-item dropdown">
+							<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+								{{ Auth::user()->name }}
+							</a>
+
+							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="{{ route('logout') }}"
+								   onclick="event.preventDefault();
+												 document.getElementById('logout-form').submit();">
+									{{ __('Logout') }}
+								</a>
+								
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+									
+									@csrf
+								</form>
+
+							</div>
+						</li>
+					@endguest
+				</ul>
+			</div>
 	        </ul>
 	      </div>
 	    </div>
@@ -233,144 +279,7 @@
     	</div>
     </section>
 
-    <!-- <section class="ftco-section ftco-no-pt">
-    	<div class="container-fluid px-md-5">
-    		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Our stories</span>
-            <h2 class="mb-4">Love stories</h2>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-lg-3 col-sm-6">
-        		<div class="block-2 ftco-animate">
-	            <div class="flipper">
-	              <div class="front" style="background-image: url(/images/person_1.jpg);">
-	                <div class="box">
-	                  <h2>Ryan Anderson</h2>
-	                  <p>Civil Lawyer</p>
-	                </div>
-	              </div>
-	              <div class="back"> -->
-	                <!-- back content -->
-	                <!-- <blockquote>
-	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text &rdquo;</p>
-	                </blockquote>
-	                <div class="author d-flex">
-	                  <div class="image align-self-center">
-	                    <img src="images/person_1.jpg" alt="">
-	                  </div>
-	                  <div class="name align-self-center ml-3">Ryan Anderson <span class="position">Civil Lawyer</span></div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-        	</div>
-        	<div class="col-lg-3 col-sm-6">
-        		<div class="block-2 ftco-animate">
-	            <div class="flipper">
-	              <div class="front" style="background-image: url(/images/person_2.jpg);">
-	                <div class="box">
-	                  <h2>Greg Washer</h2>
-	                  <p>Business Lawyer</p>
-	                </div>
-	              </div>
-	              <div class="back"> -->
-	                <!-- back content -->
-	                <!-- <blockquote>
-	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text &rdquo;</p>
-	                </blockquote>
-	                <div class="author d-flex">
-	                  <div class="image align-self-center">
-	                    <img src="images/person_2.jpg" alt="">
-	                  </div>
-	                  <div class="name align-self-center ml-3">Greg Washer<span class="position">Business Lawyer</span></div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-        	</div>
-        	<div class="col-lg-3 col-sm-6">
-        		<div class="block-2 ftco-animate">
-	            <div class="flipper">
-	              <div class="front" style="background-image: url(/images/person_3.jpg);">
-	                <div class="box">
-	                  <h2>Tony Henderson</h2>
-	                  <p>Criminal Defense</p>
-	                </div>
-	              </div>
-	              <div class="back"> -->
-	                <!-- back content -->
-	                <!-- <blockquote>
-	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text &rdquo;</p>
-	                </blockquote>
-	                <div class="author d-flex">
-	                  <div class="image align-self-center">
-	                    <img src="images/person_3.jpg" alt="">
-	                  </div>
-	                  <div class="name align-self-center ml-3">Tony Henderson <span class="position">Criminal Defense</span></div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-        	</div>
-        	<div class="col-lg-3 col-sm-6">
-        		<div class="block-2 ftco-animate">
-	            <div class="flipper">
-	              <div class="front" style="background-image: url(/images/person_4.jpg);">
-	                <div class="box">
-	                  <h2>Jack Smith</h2>
-	                  <p>Insurance Lawyer</p>
-	                </div>
-	              </div>
-	              <div class="back"> -->
-	                <!-- back content -->
-	                <!-- <blockquote>
-	                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text &rdquo;</p>
-	                </blockquote>
-	                <div class="author d-flex">
-	                  <div class="image align-self-center">
-	                    <img src="images/person_4.jpg" alt="">
-	                  </div>
-	                  <div class="name align-self-center ml-3">Jack Smith <span class="position">Insurance Lawyer</span></div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-        	</div>
-        </div>
-    	</div>
-    </section> -->
-		
 
-		<!-- <section class="ftco-consultation ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url(images/bg_2.jpg);">
-			<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row d-md-flex justify-content-end">
-    			<div class="col-md-6 half p-3 py-5 pl-md-5 ftco-animate heading-section heading-section-white">
-    				<span class="subheading">Booking an Appointment</span>
-    				<h2 class="mb-4">Free Consultation</h2>
-    				<form action="#" class="consultation">
-	            <div class="form-group">
-	              <input type="text" class="form-control" placeholder="Your Name">
-	            </div>
-	            <div class="form-group">
-	              <input type="text" class="form-control" placeholder="Your Email">
-	            </div>
-	            <div class="form-group">
-	              <input type="text" class="form-control" placeholder="Subject">
-	            </div>
-	            <div class="form-group">
-	              <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-	            </div>
-	            <div class="form-group">
-	              <input type="submit" value="Send message" class="btn btn-dark py-3 px-4">
-	            </div>
-	          </form>
-    			</div>
-    		</div>
-    	</div>
-    </section> -->
 
 
     <section class="ftco-section testimony-section mt-2 pt-3">
@@ -387,12 +296,12 @@
               <div class="item">
                 <div class="testimony-wrap py-4">
                   <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">I was incredibly happy with the event and so impressed that you understood what I wanted . </p>
                     <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    	<div class="user-img" style="background-image: url(https://cdn.discordapp.com/attachments/964244406838370324/1024916950306009138/test_1_1.jpg)"></div>
                     	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
+		                    <p class="name">Lovely Couple</p>
+		                    <span class="position">Rupi Kaur</span>
 		                  </div>
 	                  </div>
                   </div>
@@ -401,12 +310,12 @@
               <div class="item">
                 <div class="testimony-wrap py-4">
                   <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">Choosing Amour was one of the best decisions that we made through our entire wedding process.</p>
                     <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                    	<div class="user-img" style="background-image: url(https://cdn.discordapp.com/attachments/964244406838370324/1024916991305326622/test_2_1.jpg)"></div>
                     	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
+		                    <p class="name">Lovely Couple</p>
+		                    <span class="position">Nicky & Lee</span>
 		                  </div>
 	                  </div>
                   </div>
@@ -415,12 +324,12 @@
               <div class="item">
                 <div class="testimony-wrap py-4">
                   <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">Words cannot thank you enough for all that you have done for us.We appreciated what you have done!</p>
                     <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+                    	<div class="user-img" style="background-image: url(https://cdn.discordapp.com/attachments/964244406838370324/1024917054479941663/test_3_1.jpg)"></div>
                     	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
+		                    <p class="name">Lovely Couple</p>
+		                    <span class="position">Alim & Kevin</span>
 		                  </div>
 	                  </div>
                   </div>
@@ -429,32 +338,18 @@
               <div class="item">
                 <div class="testimony-wrap py-4">
                   <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">We can’t thank you enough for being such a huge part of our day and making it all come together.</p>
                     <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    	<div class="user-img" style="background-image: url(https://cdn.discordapp.com/attachments/964244406838370324/1024917078882385920/test_4_1.jpg)"></div>
                     	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
+		                    <p class="name">Lovely Couple</p>
+		                    <span class="position">Robyn & Mike</span>
 		                  </div>
 	                  </div>
                   </div>
                 </div>
               </div>
-			  
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
+			
             </div>
           </div>
         </div>
@@ -541,27 +436,7 @@
     </section> --}}
 		
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
-      <div class="container">
-        <div class="row d-flex justify-content-end">
-        	<div class="col-md-8 py-4 px-md-4 bg-primary">
-        		<div class="row">
-		          <div class="col-md-6 ftco-animate d-flex align-items-center">
-		            <h2 class="mb-0" style="color:white; font-size: 24px;">Subcribe to our Newsletter</h2>
-		          </div>
-		          <div class="col-md-6 d-flex align-items-center">
-		            <form action="#" class="subscribe-form">
-		              <div class="form-group d-flex">
-		                <input type="text" class="form-control" placeholder="Enter email address">
-		                <input type="submit" value="Subscribe" class="submit px-3">
-		              </div>
-		            </form>
-		          </div>
-	          </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -571,13 +446,13 @@
               <h2 class="logo"><a href="#">ِAMOUR<span>Love is in every corner</span></a></h2>
               <p>From the stories of princesses in the world of Disney we will make your wedding night a night of dreams.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate"><a href="https://twitter.com/weddingplanner1"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="https://web.facebook.com/theweddingplannerbridalshop/?_rdc=1&_rdr"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.instagram.com/explore/tags/weddingplanner/"><span class="icon-instagram"></span></a></li>
               </ul>
             </div>
           </div>
-          <div class="col-md">
+          {{-- <div class="col-md">
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Practice Areas</h2>
               <ul class="list-unstyled">
@@ -592,15 +467,15 @@
 
               </ul>
             </div>
-          </div>
+          </div> --}}
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Salah Aldeen street, Aqaba, Amman, Jordan</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+962799036572</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">Amour@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -627,7 +502,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Creared by AMOUR family | This website is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Aya AlSawa</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

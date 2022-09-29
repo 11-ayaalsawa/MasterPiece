@@ -25,32 +25,33 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/package.css') }}">
+    <script src="https://kit.fontawesome.com/b4ff4e859b.js" crossorigin="anonymous"></script>
   </head>
   <body>
     
-	  <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">AMOUR <span></span></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+    <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">AMOUR <span></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <!-- <li class="nav-item"><a href="attorneys.html" class="nav-link">stories</a></li> -->
-	          <li class="nav-item"><a href="practice-areas.html" class="nav-link">Bride</a></li>
-			  <li class="nav-item"><a href="./Groom.html" class="nav-link">Groom</a></li>
-			  <li class="nav-item"><a href="./Place.html" class="nav-link">Place</a></li>
-	          <!-- <li class="nav-item"><a href="case.html" class="nav-link">Case Studies</a></li> -->
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta"><a href="#" class="nav-link">Reservation</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+            <li class="nav-item  active"><a href="/about" class="nav-link">About</a></li>
+            <!-- <li class="nav-item"><a href="attorneys.html" class="nav-link">stories</a></li> -->
+            <li class="nav-item"><a href="/bride" class="nav-link">Bride</a></li>
+        <li class="nav-item"><a href="/groom" class="nav-link">Groom</a></li>
+        <li class="nav-item"><a href="/venue" class="nav-link">Venue</a></li>
+            <!-- <li class="nav-item"><a href="case.html" class="nav-link">Case Studies</a></li> -->
+            {{-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> --}}
+            <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+            <li class="nav-item cta"><a href="#" class="nav-link">My Package</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <!-- END nav -->
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/contact.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
@@ -63,183 +64,137 @@
           </div>
         </div>
       </section>
-
-        <div class="heading-description page-template-default page page-id-263 wp-custom-logo">
-          <div class="heading">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                  <div class="title">
-                    <b>Packages</b>
-                  </div>
+      <div class="px-4 px-lg-0">
+        <!-- For demo purpose -->
+        {{-- <div class="container text-white py-5 text-center">
+          <h1 class="display-4">Bootstrap 4 shopping cart</h1>
+          <p class="lead mb-0">Build a fully structred shopping cart page using Bootstrap 4. </p>
+          <p class="lead">Snippet by <a href="https://bootstrapious.com/snippets" class="text-white font-italic">
+                  <u>Bootstrapious</u></a>
+          </p>
+        </div> --}}
+        <!-- End -->
+      
+        <div class="pb-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+      
+                <!-- Shopping cart table -->
+                @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
+            @endif
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="border-0 bg-light">
+                          <div class="p-2 px-3 text-uppercase">Permits</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light">
+                          <div class="py-2 text-uppercase">Price</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light">
+                          <div class="py-2 text-uppercase">Quantity</div>
+                        </th>
+                        <th scope="col" class="border-0 bg-light">
+                          <div class="py-2 text-uppercase">Remove</div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($items as $item)
+                          
+                      
+                      <tr>
+                        <th scope="row" class="border-0">
+                          <div class="p-2">
+                            <img src="{{$item[0]->product_img}}" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{$item[0] ->product_name}}</a></h5>
+                              {{-- <span class="text-muted font-weight-normal font-italic d-block">{{$item[0]->product_description}}</span> --}}
+                            </div>
+                          </div>
+                        </th>
+                        <td class="border-0 align-middle"><strong>{{$item[0] ->product_price}}</strong></td>
+                        <td class="border-0 align-middle"><strong>1</strong></td>
+                        <td class="border-0 align-middle"><a href="/delete_item/id/{{$item[0] ->product_id}}" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                      </tr>
+                      @endforeach
+                      {{-- <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-3_cexmhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Week Ticket</a></h5><span class="text-muted font-weight-normal font-italic">Valid Until 07/09/2019</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td class="align-middle"><strong>$29.00</strong></td>
+                        <td class="align-middle"><strong>1</strong></td>
+                        <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="p-2">
+                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-2_qxjis2.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                            <div class="ml-3 d-inline-block align-middle">
+                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block"></a>Day Ticket</h5><span class="text-muted font-weight-normal font-italic">Valid until 20:00 02/09/2019</span>
+                            </div>
+                          </div>
+                          <td class="align-middle"><strong>$9.00</strong></td>
+                          <td class="align-middle"><strong>1</strong></td>
+                          <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                          </td>
+                      </tr> --}}
+                    </tbody>
+                  </table>
+                </div>
+                <!-- End -->
               </div>
             </div>
-          </div>
-        </div>
       
-        <div class="page-content">
-          <div class="container">
-            <div class="row my_blog">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="text sm_pages">
-                        <div class="package-outer">
-                          <h1 class="page-title" style="margin-top: 0;">Packages</h1>
-                          <div class="max-for-big package-page animation-element in-view">
-                            <h2 class="dec-pkg-title">Nutrition</h2>
-                            <div class="dec-item">
-                              <div class="grid-container tab-btn dec-first-pkg-grid">
-                                <div class="package-item mdi mdi-plus dec-pkg-click">Optimal Living 101 + 201</div>
-                                <div class="package-price dec-pkg-click">$295</div>
-                                <div class="package-buy"><a target="_blank" href="https://app.acuityscheduling.com/catalog.php?owner=16504288&amp;action=addCart&amp;clear=1&amp;id=581332" class="select">
-      <button type="button" class="btn-package"><span>Buy Package</span></button>
-      </a></div>  
-                              <div class="tab-content">
-                                <p>Package Price $295 <span class="dec-you-save">(You save $30)</span></p>
-                                <p><strong>Redeemable for Optimal Living 101 (3 week course) and Optimal Living 201 (4 week course).</strong> In these courses, you’ll learn life-changing information about the nutritional foundations of health and prepare to fully implement a real food way of eating and an improved lifestyle. <a href="https://app.acuityscheduling.com/schedule.php?owner=16504288&appointmentType=category:Nutrition+Classes">See upcoming classes</a>.</p>
-                                <p>DETAILS</p>
-                                <ul>
-                                  <li>Optimal Living 101 is a prerequisite for Optimal Living 201</li>
-                                  <li>Package does not expire</li>
-                                </ul>
-                              </div>
-                                </div>
-                            </div>
-                            <div class="dec-item">
-                            <div class="grid-container tab-btn dec-last-pkg-grid">
-                              <div class="package-item mdi mdi-plus dec-pkg-click">4 Individual Nutrition Counseling Sessions</div>
-                              <div class="package-price dec-pkg-click">$400</div>
-                              <div class="package-buy"><a target="_blank" href="https://app.acuityscheduling.com/catalog.php?owner=16504288&amp;action=addCart&amp;clear=1&amp;id=538558" class="select">
-      <button type="button" class="btn-package"><span>Buy Package</span></button>
-      </a></div>
-                              <div class="tab-content">
-                                <p class="aks">Package Price $400 <span class="dec-you-save">(You Save $80)</span></p>
-                                <p class="aks"><strong>Redeemable for 4 individual nutrition counseling sessions.</strong> Each session includes one-on-one mentoring, support through email and text, and development of a personalized protocol. <a href="https://app.acuityscheduling.com/schedule.php?owner=16504288&appointmentType=7888831">See available appointment times</a>.</p>
-                                <p>DETAILS</p>
-                                <ul>
-                                  <li>Sessions are 75 minutes long</li>
-                                  <li>You can schedule your sessions at any time</li>
-                                  <li>Package does not expire</li>
-                                </ul>
-                              </div>
-                              </div>
-                          </div>
-                            <h2 class="dec-pkg-title">Yoga</h2>
-                            <div class="dec-item">
-                            <div class="grid-container tab-btn dec-first-pkg-grid">
-                              <div class="package-item mdi mdi-plus dec-pkg-click">4 Class Monthly Membership</div>
-                              <div class="package-price dec-pkg-click">$60 per month</div>
-                              <div class="package-buy"><a target="_blank" href="https://app.acuityscheduling.com/catalog.php?owner=16504288&amp;action=addCart&amp;clear=1&amp;id=538566" class="select">
-      <button type="button" class="btn-package"><span>Sign-Up</span></button>
-      </a></div>
-                              <div class="tab-content">
-                                <p>Membership Price $60 <span class="dec-you-save">(You Save $20)</span></p>
-                                <p><strong>Redeemable for 4 yoga classes per month (any type).</strong> Classes focus on healing through gentle movements designed to accommodate all comfort levels. <a href="https://app.acuityscheduling.com/schedule.php?owner=16504288&appointmentType=7900218">See open classes</a>.</p>
-                                <p>DETAILS</p>
-                                <ul>
-                                  <li>Membership is billed monthly</li>
-                                  <li>You can cancel your membership at any time</li>
-                                  <li>There are no activation or cancellation fees</li>
-                                  <li>You can schedule your classes at any time</li>
-                                  <li>Class amounts reset each month</li>
-                                </ul>
-                              </div>
-                              </div>
-                            </div>
-                            <div class="dec-item">
-                            <div class="grid-container tab-btn">
-                              <div class="package-item mdi mdi-plus dec-pkg-click">Unlimited Membership</div>
-                              <div class="package-price dec-pkg-click">$100 per month</div>
-                              <div class="package-buy"><a target="_blank" href="https://app.acuityscheduling.com/catalog.php?owner=16504288&amp;action=addCart&amp;clear=1&amp;id=538568" class="select">
-      <button type="button" class="btn-package"><span>Sign-Up</span></button>
-      </a></div>
-                            <div class="tab-content">
-                                <p>Package Price $100</p>
-                              <p><strong>Redeemable for unlimited yoga classes (any type).</strong> Classes focus on healing through gentle movements designed to accommodate all comfort levels. <a href="https://app.acuityscheduling.com/schedule.php?owner=16504288&appointmentType=7900218">See open classes</a>.</p>
-                                <p>DETAILS</p>
-                                <ul>
-                                  <li>Membership is billed monthly</li>
-                                  <li>You can cancel your membership at any time</li>
-                                  <li>There are no activation or cancellation fees</li>
-                                  <li>You can schedule your classes at any time</li>
-                                </ul>
-                              </div>
-                              </div>
-                            </div>
-                            <div class="dec-item">
-                            <div class="grid-container tab-btn dec-last-pkg-grid">
-                              <div class="package-item mdi mdi-plus dec-pkg-click">4 One-On-One Yoga Lessons</div>
-                              <div class="package-price dec-pkg-click">$340</div>
-                              <div class="package-buy"><a target="_blank" href="https://app.acuityscheduling.com/catalog.php?owner=16504288&amp;action=addCart&amp;clear=1&amp;id=538560" class="select">
-      <button type="button" class="btn-package"><span>Buy Package</span></button>
-      </a></div>
-                              <div class="tab-content">
-                                <p>Package Price $340 <span class="dec-you-save">(You Save $80)</span></p>
-                                <p><strong>Redeemable for 4 one-on-one yoga lessons.</strong> Each lesson includes mindfully exercises, tailored feedback on positioning, and ongoing support. <a href="https://app.acuityscheduling.com/schedule.php?owner=16504288&appointmentType=7900176">See available appointment times</a>.</p>
-                                <p>DETAILS</p>
-                                <ul>
-                                  <li>Lessons are 75 minutes long</li>
-                                  <li>You can schedule your lessons at any time</li>
-                                  <li>Package does not expire</li>
-                                </ul>
-                              </div>
-                            </div>
-                              </div>
-                            <h2 class="dec-pkg-title">Nutrition + Yoga</h2>
-                            <div class="dec-item">
-                            <div class="grid-container tab-btn dec-first-pkg-grid dec-last-pkg-grid">
-                              <div class="package-item mdi mdi-plus dec-pkg-click">4 Individual Nutrition + Yoga Combo Sessions</div>
-                              <div class="package-price dec-pkg-click">$580</div>
-                              <div class="package-buy"><a target="_blank" href="https://app.acuityscheduling.com/catalog.php?owner=16504288&amp;action=addCart&amp;clear=1&amp;id=538562" class="select">
-      <button type="button" class="btn-package"><span>Buy Package</span></button>
-      </a></div>
-                              <div class="tab-content">
-                                <p>Package Price $580</p>
-                                <p><strong>Redeemable for 4 individual nutrition + yoga combo sessions.</strong> Each session includes one-on-one yoga instruction and personalized nutrition guidance so you can nurture your body, mind, and spirit. <a href="https://app.acuityscheduling.com/schedule.php?owner=16504288&appointmentType=7900267">See available appointment times</a>.</p>
-                                <p>DETAILS</p>
-                                <ul>
-                                  <li>Sessions are 2 hours long</li>
-                                  <li>You can schedule your sessions at any time</li>
-                                  <li>Package does not expire</li>
-                                </ul>
-                              </div>    
-                              </div>
-                            </div>
-                            <h2 class="dec-pkg-title">Self-Care Saturdays</h2>
-                            <div class="dec-item">
-                            <div class="grid-container last-package-grid tab-btn dec-first-pkg-grid dec-last-pkg-grid">
-                              <div class="package-item mdi mdi-plus dec-pkg-click">3 Self-Care Saturdays</div>
-                              <div class="package-price dec-pkg-click">$195</div>
-                              <div class="package-buy last-package"><a target="_blank" href="https://app.acuityscheduling.com/catalog.php?owner=16504288&amp;action=addCart&amp;clear=1&amp;id=582443" class="select">
-      <button type="button" class="btn-package"><span>Buy Package</span></button>
-      </a></div>
-                                                      <div class="tab-content">
-                                <p>Package Price $195 <span class="dec-you-save">(You Save $45)</span></p>
-                                                        <p><strong>Redeemable for 3 self-care saturdays.</strong> Become relaxed, joyful, and inspired with an afternoon of mindful yoga and healing nutrition in a supportive community. <a href="https://app.acuityscheduling.com/schedule.php?owner=16504288&appointmentType=8715427">See upcoming sessions</a>.</p>
-                                <p>DETAILS</p>
-                                <ul>
-                                  <li>Sessions are 3 hours long</li>
-                                  <li>You can schedule your sessions at any time</li>
-                                  <li>Package does not expire</li>
-                                </ul>
-                              </div>
-                              </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
+            <div class="row py-5 p-4 bg-white rounded shadow-sm">
+              <div class="col-lg-6">
+                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+                <div class="p-4">
+                  <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                  <div class="input-group mb-4 border rounded-pill p-2">
+                    <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
+                    <div class="input-group-append border-0">
+                      <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply coupon</button>
                     </div>
                   </div>
                 </div>
-      
+                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
+                <div class="p-4">
+                  <p class="font-italic mb-4">If you have some information for the seller you can leave them in the box below</p>
+                  <textarea name="" cols="30" rows="2" class="form-control"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+                <div class="p-4">
+                  <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
+                  <ul class="list-unstyled mb-4">
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                      <h5 class="font-weight-bold">$4000.00</h5>
+                    </li>
+                  </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                </div>
               </div>
             </div>
+      
           </div>
         </div>
-    
+      </div>
+      
 
 		
 
